@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disha Thalwar | Cybersecurity Engineer & ML Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #6d28d9;
+            --primary-dark: #5b21b6;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            transition: background-color 0.3s ease;
+            scroll-behavior: smooth;
+        }
+        
+        .dark {
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+        
+        .light {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #6d28d9, #10b981);
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at 30% 50%, rgba(109, 40, 217, 0.15) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 70%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--primary-dark);
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary);
+        }
+        
+        .skill-pill {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            transform: scale(1.05);
+        }
+        
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(109, 40, 217, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(109, 40, 217, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary);
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .toggle-checkbox:checked {
+            right: 0;
+            background-color: var(--primary);
+        }
+        
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: var(--primary-dark);
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active-nav::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="dark bg-slate-900 text-slate-100 min-h-screen">
+    <!-- Theme Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <div class="relative inline-block w-12 mr-2 align-middle select-none">
+            <input type="checkbox" id="theme-toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+            <label for="theme-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-slate-700 cursor-pointer"></label>
+        </div>
+        <span class="text-sm font-medium">
+            <i class="fas fa-moon"></i>
+        </span>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-slate-900/90 dark:bg-slate-900/90 backdrop-blur-md z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-xl font-bold gradient-text">Disha Thalwar</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium active-nav">Home</a>
+                    <a href="#about" class="nav-link text-sm font-medium">About</a>
+                    <a href="#skills" class="nav-link text-sm font-medium">Skills</a>
+                    <a href="#experience" class="nav-link text-sm font-medium">Experience</a>
+                    <a href="#projects" class="nav-link text-sm font-medium">Projects</a>
+                    <a href="#education" class="nav-link text-sm font-medium">Education</a>
+                    <a href="#contact" class="nav-link text-sm font-medium">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-slate-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800/95 pb-4">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col">
+                <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium">About</a>
+                <a href="#skills" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                <a href="#experience" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                <a href="#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                <a href="#education" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden cyber-grid">
+        <div class="absolute top-0 left-0 w-full h-full opacity-20">
+            <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-purple-500 blur-3xl opacity-30 animate-pulse-slow"></div>
+            <div class="absolute top-1/2 right-1/4 w-40 h-40 rounded-full bg-emerald-500 blur-3xl opacity-30 animate-pulse-slow delay-1000"></div>
+            <div class="absolute bottom-1/4 left-1/2 w-28 h-28 rounded-full bg-purple-500 blur-3xl opacity-30 animate-pulse-slow delay-2000"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center z-10">
+            <div class="animate-float">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">Disha Thalwar</h1>
+                <h2 class="text-xl md:text-2xl font-medium mb-8 text-slate-300">Cybersecurity Engineer | Machine Learning Enthusiast | Graduate Student at UTA</h2>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                    <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-emerald-500 text-white font-medium rounded-full hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Contact Me
+                    </a>
+                    <a href="#" class="px-8 py-3 border border-purple-500 text-purple-400 font-medium rounded-full hover:bg-purple-900/30 transition-all duration-300 transform hover:scale-105">
+                        View Resume
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-24 flex justify-center">
+                <div class="w-10 h-16 rounded-2xl border-2 border-purple-400 flex justify-center">
+                    <div class="w-1 h-4 bg-purple-400 rounded-full mt-2 animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">About Me</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="w-64 h-64 mx-auto lg:mx-0 rounded-full bg-gradient-to-br from-purple-600 to-emerald-500 p-1">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                                 alt="Disha Thalwar" 
+                                 class="w-full h-full rounded-full object-cover border-4 border-slate-900">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 bg-slate-800 p-4 rounded-lg shadow-lg border border-slate-700">
+                            <div class="flex space-x-4">
+                                <a href="https://linkedin.com/in/dishathalwar12" target="_blank" class="text-slate-300 hover:text-white transition-colors">
+                                    <i class="fab fa-linkedin-in text-xl"></i>
+                                </a>
+                                <a href="mailto:disha.thalwar1203@gmail.com" class="text-slate-300 hover:text-white transition-colors">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </a>
+                                <a href="#" class="text-slate-300 hover:text-white transition-colors">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <p class="text-lg mb-6 leading-relaxed">
+                        I'm currently pursuing an MS in Computer Science at the University of Texas at Arlington (GPA 3.8/4.0). 
+                        With 2+ years of experience as a Cybersecurity Engineer at Infosys and internship experience at a DRDO lab, 
+                        I specialize in securing systems, machine learning applications in cybersecurity, and building scalable software systems.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        My passion lies at the intersection of artificial intelligence and cybersecurity, where I develop innovative 
+                        solutions to detect and prevent sophisticated cyber threats. I thrive in challenging environments that push 
+                        the boundaries of technology and security.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <div class="flex items-center">
+                            <div class="mr-3 text-purple-400">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>Arlington, Texas</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-emerald-400">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <span>Available for opportunities</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="mr-3 text-blue-400">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <span>Graduating May 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Technical Skills</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Programming</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">C++</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Java</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">HTML/CSS</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">PHP</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">PowerShell</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Python</span>
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-database text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Databases</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">MySQL</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">AWS</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Oracle</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">MongoDB</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Firebase</span>
+                    </div>
+                </div>
+                
+                <!-- Tools -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-tools text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Development Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Eclipse</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">NetBeans</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">XAMPP</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">SharePoint</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">PyCharm</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Jupyter</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">VS Code</span>
+                    </div>
+                </div>
+                
+                <!-- Cybersecurity Tools -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-red-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Cybersecurity Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">BurpSuite</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Nmap</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Wireshark</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Metasploit</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Nessus</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Snort</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Tcpdump</span>
+                    </div>
+                </div>
+                
+                <!-- ML/AI -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-brain text-yellow-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Machine Learning & AI</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Deep Learning</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">TensorFlow</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Keras</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Neural Networks</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Transfer Learning</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">PyTorch</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Scikit-learn</span>
+                    </div>
+                </div>
+                
+                <!-- Certifications -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center mr-4">
+                            <i class="fas fa-certificate text-purple-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Certifications</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Machine Learning</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Cybersecurity Professional</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">Agile Developer</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">AWS Certified</span>
+                        <span class="skill-pill px-3 py-1 bg-slate-700 rounded-full text-sm">CompTIA Security+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Professional Experience</h2>
+            
+            <div class="relative timeline pl-12">
+                <!-- Infosys -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">Cybersecurity Engineer</h3>
+                            <span class="text-sm bg-purple-900/50 text-purple-300 px-3 py-1 rounded-full">Infosys • 2021 - 2023</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                            <li>Led 100+ vulnerability assessments for Deutsche Bank, identifying critical security flaws and recommending mitigation strategies</li>
+                            <li>Conducted comprehensive VAPT (Vulnerability Assessment and Penetration Testing) for Google Cloud applications</li>
+                            <li>Improved application reliability by 20% through implementation of robust security protocols and automated monitoring</li>
+                            <li>Developed custom security scripts in Python and PowerShell to automate routine security checks</li>
+                            <li>Collaborated with cross-functional teams to integrate security measures into CI/CD pipelines</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- DRDO Internship -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">Machine Learning Research Intern</h3>
+                            <span class="text-sm bg-emerald-900/50 text-emerald-300 px-3 py-1 rounded-full">DRDO Lab • Summer 2020</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                            <li>Built 5 machine learning models for advanced threat detection in network traffic</li>
+                            <li>Achieved 95% accuracy in anomaly detection using custom CNN architectures</li>
+                            <li>Implemented real-time processing pipelines for network packet analysis</li>
+                            <li>Published research paper on "Deep Learning Approaches for Intrusion Detection in IoT Networks"</li>
+                            <li>Optimized model performance by 30% through hyperparameter tuning and feature engineering</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Additional Experience -->
+                <div class="relative timeline-item">
+                    <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold">Teaching Assistant</h3>
+                            <span class="text-sm bg-blue-900/50 text-blue-300 px-3 py-1 rounded-full">UT Arlington • 2023 - Present</span>
+                        </div>
+                        <ul class="list-disc pl-5 space-y-2 text-slate-300">
+                            <li>Assist professors in teaching graduate-level Machine Learning and Cybersecurity courses</li>
+                            <li>Conduct lab sessions and workshops on ethical hacking techniques</li>
+                            <li>Mentor students on research projects involving AI for cybersecurity applications</li>
+                            <li>Developed interactive learning modules for network security fundamentals</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Featured Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-lock text-purple-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Intrusion Detection with R-CNN</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Python</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Jupyter</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">TensorFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-4">
+                        Developed a region-based convolutional neural network for detecting network intrusions in real-time. 
+                        The model achieved 92% accuracy on the NSL-KDD dataset, outperforming traditional signature-based detection methods.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></div>
+                            <span class="text-sm">95% Accuracy</span>
+                        </div>
+                        <a href="#" class="text-sm text-purple-400 hover:text-purple-300 flex items-center">
+                            View Details <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-image text-emerald-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">CNN for Image Classification</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Python</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Keras</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">VGG-16</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-4">
+                        Implemented a VGG-16 convolutional neural network for image classification on the CIFAR-100 dataset. 
+                        Used transfer learning and fine-tuning techniques to achieve 78% accuracy with limited training data.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></div>
+                            <span class="text-sm">78% Accuracy</span>
+                        </div>
+                        <a href="#" class="text-sm text-purple-400 hover:text-purple-300 flex items-center">
+                            View Details <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-project-diagram text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Distributed Linear Regression</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Apache Spark</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Scala</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">MLlib</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-4">
+                        Built a distributed linear regression model using Apache Spark and Scala to process large datasets (10M+ records). 
+                        Achieved 5x speedup compared to single-node implementations while maintaining model accuracy.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></div>
+                            <span class="text-sm">5x Speedup</span>
+                        </div>
+                        <a href="#" class="text-sm text-purple-400 hover:text-purple-300 flex items-center">
+                            View Details <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-red-500/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-exchange-alt text-red-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">RPC File Sync System</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Python</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Ubuntu</span>
+                                <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">gRPC</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-slate-300 mb-4">
+                        Designed a secure remote procedure call (RPC) system for synchronizing files across distributed nodes. 
+                        Implemented encryption and checksum verification to ensure data integrity during transfer.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                            <div class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></div>
+                            <span class="text-sm">99.9% Reliability</span>
+                        </div>
+                        <a href="#" class="text-sm text-purple-400 hover:text-purple-300 flex items-center">
+                            View Details <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Education</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- UTA -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-lg bg-purple-500/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-purple-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Master of Science in Computer Science</h3>
+                            <p class="text-slate-300">University of Texas at Arlington</p>
+                            <p class="text-sm text-slate-400">Expected May 2025 • GPA: 3.8/4.0</p>
+                            <div class="mt-4">
+                                <h4 class="font-medium mb-2">Relevant Coursework:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Advanced Machine Learning</span>
+                                    <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Cybersecurity Systems</span>
+                                    <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Cloud Computing</span>
+                                    <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Secure Software Dev</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pune University -->
+                <div class="bg-slate-800 rounded-xl p-6 card-hover border border-slate-700">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-lg bg-emerald-500/10 flex items-center justify-center mr-4">
+                            <i class="fas fa-graduation-cap text-emerald-400 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold">Bachelor of Engineering in Computer Science</h3>
+                            <p class="text-slate-300">Pune University</p>
+                            <p class="text-sm text-slate-400">May 2020 • GPA: 3.6/4.0</p>
+                            <div class="mt-4">
+                                <h4 class="font-medium mb-2">Achievements:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">University Gold Medalist</span>
+                                    <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Best Thesis Award</span>
+                                    <span class="px-2 py-1 bg-slate-700 rounded-full text-xs">Hackathon Winner</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title">Get In Touch</h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-1">Name</label>
+                            <input type="text" id="name" class="input-field w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" id="email" class="input-field w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-1">Message</label>
+                            <textarea id="message" rows="5" class="input-field w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-emerald-500 text-white font-medium rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-slate-800 rounded-xl p-8 h-full border border-slate-700">
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Email</h4>
+                                    <a href="mailto:disha.thalwar1203@gmail.com" class="text-slate-300 hover:text-purple-400 transition-colors">disha.thalwar1203@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-blue-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Phone</h4>
+                                    <a href="tel:+16824068765" class="text-slate-300 hover:text-blue-400 transition-colors">+1 (682) 406-8765</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fab fa-linkedin-in text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">LinkedIn</h4>
+                                    <a href="https://linkedin.com/in/dishathalwar12" target="_blank" class="text-slate-300 hover:text-emerald-400 transition-colors">linkedin.com/in/dishathalwar12</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-yellow-500/10 flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-yellow-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium">Location</h4>
+                                    <p class="text-slate-300">Arlington, Texas, USA</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12">
+                            <h4 class="font-medium mb-4">Let's Connect</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-purple-500 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-blue-600 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-red-500 transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-pink-600 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p class="text-sm text-slate-400">© 2023 Disha Thalwar. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">Privacy Policy</span>
+                        Privacy
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition-colors">
+                        <span class="sr-only">Terms</span>
+                        Terms
+                    </a>
+                    <a href="#home" class="text-slate-400 hover:text-purple-400 transition-colors flex items-center">
+                        Back to Top <i class="fas fa-arrow-up ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('theme') === 'light') {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            themeToggle.checked = true;
+        }
+        
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.remove('light');
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Update active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active-nav');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active-nav');
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.card-hover, .section-title, .skill-pill');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize elements with opacity 0 for animation
+        document.querySelectorAll('.card-hover, .section-title, .skill-pill').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
